@@ -20,13 +20,19 @@ global_ipv6_subnet_ranges:
 # role: ethpandaops.general.bootstrap
 bootstrap_user: root
 bootstrap_default_user_authorized_keys_github:
-  - barnabasbusa
-  - parithosh
-  - samcm
-  - savid
-  - skylenet
-  - pk910
-  - mattevans
+  - cbermudez97
+  - MarekM25
+  - kamilchodola
+  - LukaszRozmej
+  - marcindsobczak
+  - asdacap
+  - rubo
+  - smartprogrammer93
+  - AntiD2ta
+  - flcl42
+  - benaadams
+  - brbrr
+  - dmitriy-b
 
 # role: robertdebock.fail2ban
 fail2ban_loglevel: INFO
@@ -36,7 +42,6 @@ fail2ban_bantime: 600
 fail2ban_ignoreips:
   - "127.0.0.1/8 ::1"
   - "{{ lookup('ansible.builtin.url', 'http://ifconfig.me/ip', split_lines=False) }}/32" # Avoid banning ourself
-
 
 # role: ethpandaops.general.docker_network
 docker_network_name: shared
@@ -56,8 +61,8 @@ docker_users:
 docker_daemon_options:
   "log-driver": "json-file"
   "log-opts":
-      "max-size": "500m"
-      "max-file": "8"
+    "max-size": "500m"
+    "max-file": "8"
 
 # role: ethpandaops.general.prometheus
 prometheus_container_networks: "{{ docker_networks_shared }}"

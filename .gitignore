@@ -17,6 +17,7 @@ crash.*.log
 *.tfvars
 *.tfvars.json
 override.tf
+*.tfbackend
 override.tf.json
 *_override.tf
 *_override.tf.json
@@ -26,6 +27,7 @@ terraform.rc
 .terraform.lock.hcl
 
 # Sops
+secrets.yaml
 **/.decrypted*
 
 # Validator keys

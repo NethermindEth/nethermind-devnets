@@ -3,36 +3,31 @@
 ////////////////////////////////////////////////////////////////////////////////////////
 terraform {
   required_providers {
-    digitalocean = {
-      source  = "digitalocean/digitalocean"
-      version = "~> 2.28"
+    linode = {
+      source  = "linode/linode"
+      version = "~> 2.38"
     }
     cloudflare = {
       source  = "cloudflare/cloudflare"
-      version = "~> 3.0"
-    }
-    hcloud = {
-      source  = "hetznercloud/hcloud"
-      version = "~> 1.42.1"
+      version = "~> 5.0"
     }
   }
 }
 
 terraform {
   backend "s3" {
+    region                      = "main"
     skip_credentials_validation = true
     skip_metadata_api_check     = true
-    endpoints                   = { s3 = "https://fra1.digitaloceanspaces.com" }
     skip_requesting_account_id  = true
-    skip_s3_checksum            = true
-    region                      = "us-east-1"
-    bucket                      = "merge-testnets"
-    key                         = "infrastructure/devnet-0/terraform.tfstate"
+    skip_region_validation      = true
+    use_path_style              = true
+    key                         = "infrastructure/perfnet-1/terraform.tfstate"
   }
 }
 
-provider "digitalocean" {
-  http_retry_max = 20
+provider "linode" {
+  token = var.linode_api_token
 }
 
 provider "cloudflare" {
@@ -42,6 +37,12 @@ provider "cloudflare" {
 ////////////////////////////////////////////////////////////////////////////////////////
 //                                        VARIABLES
 ////////////////////////////////////////////////////////////////////////////////////////
+variable "linode_api_token" {
+  type        = string
+  sensitive   = true
+  description = "Linode API Token"
+}
+
 variable "cloudflare_api_token" {
   type        = string
   sensitive   = true
@@ -50,7 +51,7 @@ variable "cloudflare_api_token" {
 
 variable "ethereum_network" {
   type    = string
-  default = "template-devnet-0"
+  default = "perfnet-1"
 }
 
 variable "base_cidr_block" {

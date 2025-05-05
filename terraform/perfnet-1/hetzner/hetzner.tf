@@ -154,7 +154,7 @@ resource "hcloud_server_network" "main" {
 ////////////////////////////////////////////////////////////////////////////////////////
 
 data "cloudflare_zone" "default" {
-  name = "ethpandaops.io"
+  name = "nethermind.dev"
 }
 
 resource "cloudflare_record" "server_record" {
@@ -259,5 +259,5 @@ resource "local_file" "ansible_inventory" {
       )
     }
   )
-  filename = "../../../ansible/inventories/devnet-0/hetzner_inventory.ini"
+  filename = "../../../ansible/inventories/perfnet-1/hetzner_inventory.ini"
 }

@@ -1,5 +1,6 @@
 # This is an auxiliary playbook that helps to generate a list of known_hosts based on the hosts defined in the ansible inventory
-- hosts: all
+- name: Update known hosts
+  hosts: all
   connection: local
   gather_facts: false
   become: false

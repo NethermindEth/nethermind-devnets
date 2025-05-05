@@ -23,7 +23,7 @@ terraform {
     skip_s3_checksum            = true
     region                      = "us-east-1"
     bucket                      = "merge-testnets"
-    key                         = "infrastructure/devnet-0/hive/terraform.tfstate"
+    key                         = "infrastructure/perfnet-1/hive/terraform.tfstate"
   }
 }
 
@@ -46,7 +46,7 @@ variable "cloudflare_api_token" {
 
 variable "ethereum_network" {
   type    = string
-  default = "template-devnet-0"
+  default = "template-perfnet-1"
 }
 
 variable "digitalocean_project_name" {
@@ -148,7 +148,7 @@ resource "digitalocean_firewall" "main" {
 ////////////////////////////////////////////////////////////////////////////////////////
 
 data "cloudflare_zone" "default" {
-  name = "ethpandaops.io"
+  name = "nethermind.dev"
 }
 
 resource "cloudflare_record" "server_record_v4" {
@@ -175,5 +175,5 @@ resource "local_file" "ansible_inventory" {
       region                = "${var.digitalocean_region}"
     }
   )
-  filename = "../../../ansible/inventories/devnet-0/hive_inventory.ini"
+  filename = "../../../ansible/inventories/perfnet-1/hive_inventory.ini"
 }

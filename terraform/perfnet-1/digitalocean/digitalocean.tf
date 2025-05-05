@@ -215,7 +215,7 @@ resource "digitalocean_firewall" "main" {
 ////////////////////////////////////////////////////////////////////////////////////////
 
 data "cloudflare_zone" "default" {
-  name = "ethpandaops.io"
+  name = "nethermind.dev"
 }
 
 resource "cloudflare_record" "server_record_v4" {
@@ -319,5 +319,5 @@ resource "local_file" "ansible_inventory" {
       )
     }
   )
-  filename = "../../ansible/inventories/devnet-0/inventory.ini"
+  filename = "../../ansible/inventories/perfnet-1/inventory.ini"
 }
