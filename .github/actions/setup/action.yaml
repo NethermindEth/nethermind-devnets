@@ -5,6 +5,9 @@ runs:
   steps:
     - name: Install asdf
       uses: asdf-vm/actions/setup@05e0d2ed97b598bfce82fd30daf324ae0c4570e6 # v3.0.2
+      with:
+        # setup.sh uses the Bash-based asdf CLI.
+        asdf_branch: v0.15.0
 
     - name: Install asdf tools
       shell: bash

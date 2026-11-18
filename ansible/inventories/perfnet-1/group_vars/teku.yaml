@@ -28,6 +28,8 @@ ethereum_node_cl: teku
 teku_container_name: beacon
 teku_container_image: "{{ default_ethereum_client_images.teku }}"
 teku_container_env:
+  # Mitigate CVE-2026-114938 until the bundled JVM is patched.
+  JAVA_TOOL_OPTIONS: "-XX:+UnlockDiagnosticVMOptions -XX:-UseBASE64Intrinsics"
   VIRTUAL_HOST: "{{ ethereum_node_beacon_hostname }}"
   VIRTUAL_PORT: "{{ ethereum_node_cl_ports_http_beacon | string }}"
   LETSENCRYPT_HOST: "{{ ethereum_node_beacon_hostname }}"
