@@ -1,5 +1,5 @@
 # role: ethpandaops.general.hive
-hive_container_www_image: "docker.ethquokkaops.io/dh/library/nginx:1.27.3-alpine"
+hive_container_www_image: "docker.ethquokkaops.io/dh/library/nginx:1.31.9-alpine@sha256:0713660ff64e819a478be0d69ae314e52d21623c93672edd9f381a6e66fd95ff"
 hive_container_www_env:
   VIRTUAL_PORT: "80"
   VIRTUAL_HOST: "hive.{{ network_subdomain }}"
