@@ -48,7 +48,7 @@ default_tooling_images:
   node_exporter: docker.ethquokkaops.io/dh/prom/node-exporter:v1.5.0
   cl_bootnode: docker.ethquokkaops.io/dh/protolambda/eth2-bootnode:cleanup
   json_rpc_snooper: docker.ethquokkaops.io/dh/ethpandaops/json-rpc-snoop:1.1.0
-  nginx_proxy: docker.ethquokkaops.io/dh/nginx:alpine
+  nginx_proxy: docker.ethquokkaops.io/dh/nginx:1.31.9-alpine@sha256:0713660ff64e819a478be0d69ae314e52d21623c93672edd9f381a6e66fd95ff
   nginx_proxy_gen: docker.ethquokkaops.io/dh/nginxproxy/docker-gen
   nginx_proxy_acme: docker.ethquokkaops.io/dh/nginxproxy/acme-companion
   vector: docker.ethquokkaops.io/dh/timberio/vector:0.46.1-alpine
